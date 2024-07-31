@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * Implements hook_form_alter().
+ */
+function my_custom_login_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'user_login_form') {
+    $form['#validate'] = ['::validateForm'];
+    $form['#submit'] = ['::submitForm'];
+    $form['#validate'][] = [\Drupal::formBuilder()->getForm('Drupal\my_custom_login\Form\CustomUserLoginForm'), 'validateForm'];
+    $form['#submit'][] = [\Drupal::formBuilder()->getForm('Drupal\my_custom_login\Form\CustomUserLoginForm'), 'submitForm'];
+  }
+}

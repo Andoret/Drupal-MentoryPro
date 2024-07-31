@@ -1,0 +1,7 @@
+name: 'My Custom Login'
+type: module
+description: 'Overrides the user login form to use an external API for authentication.'
+core_version_requirement: ^8 || ^9 || ^10
+package: Custom
+dependencies:
+  - drupal:user

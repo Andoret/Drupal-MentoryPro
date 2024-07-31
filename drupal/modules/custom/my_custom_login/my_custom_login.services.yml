@@ -1,0 +1,6 @@
+services:
+  my_custom_login.form_custom_user_login:
+    class: Drupal\my_custom_login\Form\CustomUserLoginForm
+    arguments: ['@user.flood_control', '@entity_type.manager', '@user.auth', '@renderer', '@bare_html_page_renderer']
+    tags:
+      - { name: form, id: user_login_form }
